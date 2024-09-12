@@ -1,0 +1,62 @@
+<div class="container">
+    <h2>Veterinarian Insurance Form</h2>
+  
+    <form [formGroup]="vetForm" (ngSubmit)="onSubmit()">
+      <!-- Pet Information -->
+      <h3>Pet Information</h3>
+      <label>Pet Name: </label>
+      <input type="text" formControlName="petName" />
+      <div *ngIf="vetForm.get('petName')?.invalid && vetForm.get('petName')?.touched">
+        Pet Name is required.
+      </div>
+  
+      <label>Species: </label>
+      <select formControlName="species">
+        <option value="dog">Dog</option>
+        <option value="cat">Cat</option>
+        <option value="other">Other</option>
+      </select>
+  
+      <label>Breed: </label>
+      <input type="text" formControlName="breed" />
+  
+      <label>Age: </label>
+      <input type="number" formControlName="age" />
+      <div *ngIf="vetForm.get('age')?.invalid && vetForm.get('age')?.touched">
+        Age must be a positive number.
+      </div>
+  
+      <label>Gender: </label>
+      <select formControlName="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+  
+      <label>Weight (kg): </label>
+      <input type="number" formControlName="weight" />
+  
+      <!-- Policy Information -->
+      <h3>Policy Information</h3>
+      <label>Policy Number: </label>
+      <input type="text" formControlName="policyNumber" />
+  
+      <label>Insurance Provider: </label>
+      <input type="text" formControlName="insuranceProvider" />
+  
+      <label>Coverage Plan: </label>
+      <input type="text" formControlName="coveragePlan" />
+  
+      <label>Deductible: </label>
+      <input type="number" formControlName="deductible" />
+  
+      <label>Co-Pay (%): </label>
+      <input type="number" formControlName="coPay" />
+  
+      <label>Annual Maximum Limit: </label>
+      <input type="number" formControlName="annualMaxLimit" />
+  
+      <!-- Submit Button -->
+      <button type="submit" [disabled]="vetForm.invalid">Submit</button>
+    </form>
+  </div>
+  
