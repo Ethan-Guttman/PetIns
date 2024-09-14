@@ -1,14 +1,29 @@
+
 nav {
-    width: fill;
-    background-color: #1caa1c;
+    width: 100%;
+    font-size: 18px;
+    padding: 1.6rem 6.4rem;
+    background-image: linear-gradient(to bottom right, #8dc78d, #5ba35b);
+    color: rgb(36, 36, 36);
     height: 2em;
     border-radius: 4px;
+    position: fixed;
 }
 
 nav a {
     height: fill;
     font-size: 1.5em;
     margin: auto 1em;
-    color: rgb(224, 224, 224);
+    color: rgb(36, 36, 36);
     text-decoration: none;
+    
+}
+
+nav a:hover {
+    color: rgb(119, 119, 119);
+}
+
+.rightSide {
+    float:right;
+    padding-right:200px;
 }
