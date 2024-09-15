@@ -5,9 +5,64 @@
       <mat-label>Pet Name</mat-label>
       <input formControlName="petNameControl" matInput >
     </mat-form-field>
+
     <mat-form-field>
       <mat-label>Species</mat-label>
-      <input formControlName="speciesControl" matInput >
+      <mat-select formControlName="speciesControl">
+        <mat-option value="Male">Cat</mat-option>
+        <mat-option value="Female">Dog</mat-option>
+      </mat-select>
     </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Age</mat-label>
+      <input formControlName="ageControl" matInput >
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Gender</mat-label>
+      <mat-select formControlName="petGenderControl">
+        <mat-option value="Male">Male</mat-option>
+        <mat-option value="Female">Female</mat-option>
+      </mat-select>
+      <!-- <input formControlName="petGenderControl" matInput > -->
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Weight (kg)</mat-label>
+      <input formControlName="petWeightControl" matInput >
+    </mat-form-field>
+
+    <mat-form-field class="example-chip-list">
+      <mat-label>Favorite Fruits</mat-label>
+      
+      <input
+        name="currentCare"
+        placeholder="New Care..."
+        #careInput
+        [(ngModel)]="currentCare"
+        [ngModelOptions]="{standalone: true}"
+        [matChipInputFor]="chipGrid"
+        [matAutocomplete]="auto"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        (matChipInputTokenEnd)="add($event)"
+      />
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+        @for (care of filteredCare(); track care) {
+          <mat-option [value]="care">{{care}}</mat-option>
+        }
+      </mat-autocomplete>
+      <mat-chip-grid #chipGrid aria-label="Fruit selection">
+        @for (care of cares(); track $index) {
+          <mat-chip-row (removed)="remove(care)">
+            {{care}}
+            <button matChipRemove [attr.aria-label]="'remove ' + care">
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip-row>
+        }
+      </mat-chip-grid>
+    </mat-form-field>
+    <button mat-flat button type="submit">Submit</button>
   </form>
 </div>
