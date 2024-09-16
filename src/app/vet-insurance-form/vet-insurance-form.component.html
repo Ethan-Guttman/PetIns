@@ -1,6 +1,32 @@
+<div>
 <div class="container">
   <h1>Pet Details</h1>
   <form [formGroup]="vetForm" #vetInsuranceForm="ngForm" (ngSubmit)="Submit()">
+    <mat-form-field>
+      <mat-label>Customer First Name</mat-label>
+      <input formControlName="custFirstNameControl" matInput >
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Customer Last Name</mat-label>
+      <input formControlName="custLastNameControl" matInput >
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Customer Date of Birth</mat-label>
+      <input formControlName="custDobControl" matInput >
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Customer Insurance Provider</mat-label>
+      <input formControlName="custProviderControl" matInput >
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Customer Policy Number</mat-label>
+      <input formControlName="custPolicyNumControl" matInput >
+    </mat-form-field>
+
     <mat-form-field>
       <mat-label>Pet Name</mat-label>
       <input formControlName="petNameControl" matInput >
@@ -34,7 +60,7 @@
     </mat-form-field>
 
     <mat-form-field class="example-chip-list">
-      <mat-label>Favorite Fruits</mat-label>
+      <mat-label>Care</mat-label>
       
       <input
         name="currentCare"
@@ -65,4 +91,10 @@
     </mat-form-field>
     <button mat-flat button type="submit">Submit</button>
   </form>
+</div>
+@if (chatGptMessage.length > 0){
+  <div class="container">
+    <h1>The ChatGPT calculated cost is: ${{this.chatGptMessage}}</h1>
+  </div>
+}
 </div>

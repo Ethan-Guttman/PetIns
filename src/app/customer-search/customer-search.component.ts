@@ -12,14 +12,6 @@ export interface CustomerData {
   policy_number: string;
 }
 
-// const ELEMENT_DATA: CustomerData[] = [
-//   {name: 'John Smith', dateOfBirth: '3/12/1985', insuranceProvider: 'Aetna', policyNumber: 'BC1241989324'},
-//   {name: 'Emily Johnson', dateOfBirth: '3/12/1985', insuranceProvider: 'Highmark', policyNumber: 'BC1241989324'},
-//   {name: 'Michael Williams', dateOfBirth: '3/12/1985', insuranceProvider: 'Aetna', policyNumber: 'BC1241989324'},
-//   {name: 'Sarah Brown', dateOfBirth: '3/12/1985', insuranceProvider: 'Highmark', policyNumber: 'BC1241989324'},
-  
-// ];
-
 @Component({
   selector: 'app-customer-search',
   standalone: true,
@@ -56,11 +48,10 @@ export class CustomerSearchComponent {
   displayedColumns = this.columns.map(c => c.columnDef);
 
   constructor() {
-    // Make the axios GET request inside the constructor (or ngOnInit if preferred)
+    
     axios.get('http://127.0.0.1:5000/api/customers')
       .then((response) => {
         console.log('Success:', response.data);
-        // Assign the API response data to the datasource
         this.datasource = response.data;
         this.filteredSource = this.datasource;
       })
