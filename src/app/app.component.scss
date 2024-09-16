@@ -11,12 +11,22 @@ nav {
     z-index: 1000;
 }
 
+svg {
+    float:left;
+}
+
+nav h3{
+    width:fit-content;
+    float: left;
+}
+
 nav a {
     height: fill;
     font-size: 1.5em;
-    margin: auto 1em;
+    margin: auto 1em auto 0em;
     color: rgb(36, 36, 36);
     text-decoration: none;
+    // margin-top: 50px;
     
 }
 
@@ -24,7 +34,7 @@ nav a:hover {
     color: rgb(119, 119, 119);
 }
 
-.rightSide {
-    float:right;
-    padding-right:200px;
+.nav_options {
+    // float:right;
+    padding:15px 300px 0px;
 }
